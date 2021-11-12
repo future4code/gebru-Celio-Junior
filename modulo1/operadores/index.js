@@ -62,28 +62,27 @@
 // let consumoKW = 280
 // let descontoKW = 0.15
 // let totalPagar = valorKW * consumoKW
-
 // console.log(`O valor a ser pago pelo consumo de enérgia em sua residência é de R$${totalPagar},00`)
 // console.log(`Valor a ser pago com desconto ${totalPagar - (totalPagar * descontoKW)}`)
 
 // 3° ======================================================
-// let lb = 20
-// let oz = 10.5
-// let mi = 100
-// let ft = 50
-// let gal = 104.56
-// let xic = 450
+let lb = 20
+let oz = 10.5
+let mi = 100
+let ft = 50
+let gal = 104.56
+let xic = 450
 
-// let lbParaKg = lb / 2.205
-// let ozParaKg = oz / 35.274
-// let miParaM = mi * 1609
-// let ftParaM = ft / 3.281
-// let galParaL = (gal * 473176473) / 125000000
-// let xicParaL = (xic * 6) / 25
+let lbParaKg = lb / 2.205
+let ozParaKg = oz / 35.274
+let miParaM = mi * 1609
+let ftParaM = ft / 3.281
+let galParaL = (gal * 473176473) / 125000000
+let xicParaL = (xic * 6) / 25
 
-// console.log(`${lb}lb equivalem a ${lbParaKg.toFixed(2)}kg`)
-// console.log(`${oz}oz equivalem a ${ozParaKg.toFixed(2)}kg`)
-// console.log(`${mi}mi equivalem a ${miParaM}m`)
-// console.log(`${ft}ft equivalem a ${ftParaM.toFixed(2)}m`)
-// console.log(`${gal}gal equivalem a ${galParaL.toFixed(2)}L`)
-// console.log(`${xic}xic equivalem a ${xicParaL.toFixed(2)}L`)
+console.log(`${lb}lb equivalem a ${lbParaKg.toFixed(2)}kg`)
+console.log(`${oz}oz equivalem a ${ozParaKg.toFixed(2)}kg`)
+console.log(`${mi}mi equivalem a ${miParaM}m`)
+console.log(`${ft}ft equivalem a ${ftParaM.toFixed(2)}m`)
+console.log(`${gal}gal equivalem a ${galParaL.toFixed(2)}L`)
+console.log(`${xic}xic equivalem a ${xicParaL.toFixed(2)}L`)
