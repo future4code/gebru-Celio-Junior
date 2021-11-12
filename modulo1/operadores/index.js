@@ -86,3 +86,7 @@ console.log(`${mi}mi equivalem a ${miParaM}m`)
 console.log(`${ft}ft equivalem a ${ftParaM.toFixed(2)}m`)
 console.log(`${gal}gal equivalem a ${galParaL.toFixed(2)}L`)
 console.log(`${xic}xic equivalem a ${xicParaL.toFixed(2)}L`)
+
+lb = Number(prompt("Insira um valor"))
+lbParaKg = lb / 2.205
+console.log(`${lb}lb equivalem a ${lbParaKg.toFixed(2)}kg`)
