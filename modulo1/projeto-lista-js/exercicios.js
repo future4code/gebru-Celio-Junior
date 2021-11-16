@@ -27,17 +27,17 @@ function calculaAreaRetangulo() {
 
 // EXERCÍCIO 02
 function imprimeIdade() {
-  let anoAtual = Number(prompt("Digite o ano atual"))
-    let anoDeNAscimento = Number(prompt("Digite o ano de nascimento"))
-    let Idade = anoAtual - anoDeNAscimento
-    console.log(Idade)
+  const anoAtual = Number(prompt("Digite o ano atual")),
+  anoNascimento = Number(prompt("Digite o ano de nascimento")),
+  Idade = anoAtual - anoNascimento
+
+  console.log(Idade)
 
 
 }
 
 // EXERCÍCIO 03
 function calculaIMC(peso, altura) {
-
   return peso / (altura * altura)
 
 }
