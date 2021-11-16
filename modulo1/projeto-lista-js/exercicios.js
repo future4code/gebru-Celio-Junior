@@ -27,10 +27,11 @@ function calculaAreaRetangulo() {
 
 // EXERCÍCIO 02
 function imprimeIdade() {
-  const anoAtual = Number(prompt("Insira o ano atual")),
-  dataNascimento = Number(prompt("Insira sua data de nascimento"))
+  let anoAtual = Number(prompt("Digite o ano atual"))
+    let anoDeNAscimento = Number(prompt("Digite o ano de nascimento"))
+    let Idade = anoAtual - anoDeNAscimento
+    console.log(Idade)
 
-  console.log(anoAtual - dataNascimento)
 
 }
 
@@ -64,8 +65,8 @@ function imprimeTresCoresFavoritas() {
 
 // EXERCÍCIO 06
 function retornaStringEmMaiuscula(string) {
-  return string.toUpperCase(0)
-  
+  return string.toUpperCase()
+
 }
 
 // EXERCÍCIO 07
