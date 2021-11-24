@@ -40,17 +40,22 @@ function one() {
 
 one() // END
 
-// #2
+// // #2
 function two() {
 	const firstPerson = {name: "Júnior", age: 20, occupation: "Estudante"}
 	const secondPerson = {...firstPerson, name: "Shang"}
+	let array1 = []
+	let array2 = [] 
+
 
 	function accessObj(obj1, obj2) {
-		console.log(obj1.name, obj1.name.length, obj1.age, obj1.occupation, obj1.occupation.length)
-		console.log(obj2.name, obj2.name.length, obj2.age, obj2.occupation, obj2.occupation.length)
+		array1.push(obj1.name, obj1.name.length, obj1.age, obj1.occupation, obj1.occupation.length)
+		array2.push(obj2.name, obj2.name.length, obj2.age, obj2.occupation, obj2.occupation.length)
+		let array3 = [array1, array2]
+		return array3
 	}
 
-	accessObj(firstPerson, secondPerson)
+	console.log(accessObj(firstPerson, secondPerson))
 
 
 }
