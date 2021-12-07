@@ -51,12 +51,12 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
- 
+ arrayParesElevados = array.filter(num => num % 2 === 0).map(num => Math.pow(num, 2))
+ return arrayParesElevados
 }
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
-  
 }
 
 // EXERCÍCIO 07
