@@ -20,7 +20,21 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-  
+  for (let i = 0; i < array.length; i++) {
+    let minIndex = i
+
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[j] < array[minIndex]) {
+        minIndex = j
+      }
+    }
+
+    let temp = array[minIndex]
+    array[minIndex] = array[i]
+    array[i] = temp
+  }
+
+  return array
 }
 
 // EXERCÍCIO 04
