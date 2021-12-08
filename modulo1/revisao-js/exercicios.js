@@ -1,8 +1,3 @@
-// ATENÇÃO!!!
-//    -> NÃO COMENTE NENHUMA DAS FUNÇÕES DECLARADAS!!! 
-//    -> NÃO MODIFIQUE OS PARÂMETROS DAS FUNÇÕES!!! ()
-
-
 // EXERCÍCIO 01
 function retornaTamanhoArray(array) {
 	return array.length
@@ -51,7 +46,7 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
-	arrayParesElevados = array.filter(num => num % 2 === 0).map(num => Math.pow(num, 2))
+	const arrayParesElevados = array.filter(num => num % 2 === 0).map(num => Math.pow(num, 2))
 	return arrayParesElevados
 }
 
@@ -69,7 +64,7 @@ function retornaMaiorNumero(array) {
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
-	// Obter maior número
+	// Obter maior e menor número
 	const maiorNumero = (num1 > num2) ? num1 : num2
 	const menorNumero = (num1 < num2) ? num1 : num2
 
@@ -182,8 +177,11 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
+	// Função que recebe uma data no padrão brasileiro dd/mm/aaaa
+	// E a converte para o padrão americano yyyy-mm-dd
 	const dataEN = data => data.split('/').reverse().join('-')
 
+	// Date.parse() só fornece o resultado esperado caso a data esteja no padrão yyyy-mm-dd
 	consultas.sort((a, b) => Date.parse(dataEN(a.dataDaConsulta)) - Date.parse(dataEN(b.dataDaConsulta)))
 	return consultas
 }
