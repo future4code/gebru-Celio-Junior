@@ -166,10 +166,24 @@ function retornaContasComSaldoAtualizado(contas) {
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
+	const consultasOrdenadasPorNome = consultas.sort((a, b) => {
+		switch (a.nome > b.nome) {
+			case true:
+				return 1;
+			case false:
+				return -1;
+			default:
+				return 0;
+		}
+	})
 
+	return consultasOrdenadasPorNome
 }
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
+	const dataEN = data => data.split('/').reverse().join('-')
 
+	consultas.sort((a, b) => Date.parse(dataEN(a.dataDaConsulta)) - Date.parse(dataEN(b.dataDaConsulta)))
+	return consultas
 }
