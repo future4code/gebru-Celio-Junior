@@ -1,69 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <title>Controle de Estoque</title>
 </head>
 <body>
-    <div>
-        <h1>Lá vem o macaco & cia</h1>
+    <header>
+        <h1><a href="./index.html">Livros Caros</a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="ctrl-estoque.html">Controle de Estoque</a></li>
+                <li><a href="add-produto.html">Adicionar Produto</a></li>
+                <li><a href="funcionarios.html">Funcionários</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Controle de Estoque</h2>
+
+        <table class="tabela-estoque">
+            <tr>
+                <th>Foto</th>
+                <th>Descrição</th>
+                <th>Preço (R$)</th>
+                <th>Quantidade disponível</th>
+            </tr>
+
+            <tr>
+                <td><img class="img-estoque" src="img/nome_do_vento.jpg" alt="Foto do livro O Nome do Vento"/></td>
+                <td> O Nome do Vento </td>
+                <td> 30,00 </td>
+                <td> 8 </td>
+            </tr>
+
+            <tr>
+                <td><img class="img-estoque" src="img/sidarta.jpg" alt="Foto do livro Sidarta"/></td>
+                <td> Sidarta </td>
+                <td> 20,00 </td>
+                <td> 9 </td>
+            </tr>
+
+            <tr>
+                <td><img class="img-estoque" src="img/noites_brancas.jpg" alt="Foto do livro Noites Brancas"/></td>
+                <td> Noites Brancas </td>
+                <td> 40,00 </td>
+                <td> 4 </td>
+            </tr>
+
+            <tr>
+                <td><img class="img-estoque" src="img/cartas_jovem_poeta.jpg" alt="Foto do livro Cartar para um Jovem Poeta"></td>
+                <td>Cartas para um Jovem Poeta</td>
+                <td>10,00</td>
+                <td>7</td>
+            </tr>
+        </table>
     </div>
-    
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
-    </div>
 
-    <h2>Controle de Estoque</h2>
-
-    <table>
-        <tr>
-            <th>Foto</th>
-            <th>Descrição</th>
-            <th>Preço (R$)</th>
-            <th>Quantidade disponível</th>
-        </tr>
-
-        <tr>
-            <td><img width="200px" height="200px" src="img/macaco_prego.jpg" alt="Foto de um macaco prego"/></td>
-            <td> Macaco-prego </td>
-            <td> 16.000 </td>
-            <td> 3 </td>
-        </tr>
-
-        <tr>
-            <td><img width="200px" height="200px" src="img/cesar_macacao.jpg" alt="Foto do Cesar, de planeta dos macacos"/></td>
-            <td> Cesar </td>
-            <td> 100.000 </td>
-            <td> 1 </td>
-        </tr>
-
-        <tr>
-            <td><img width="200px" height="200px" src="img/king_kong.jpg" alt="Foto do king kong"/></td>
-            <td> Kong </td>
-            <td> 80.000 </td>
-            <td> 1 </td>
-        </tr>
-
-         <tr>
-            <td><img width="200px" height="200px" src="img/gorilao_bola_azul.jpg" alt="Foto do Antônio Tabet"/></td>
-            <td> Gorilão da bola azul </td>
-            <td> 1,99 </td>
-            <td> 1 </td>
-        </tr>
-        
-        <tr>
-            <td><img src="img/sr_tenny.png" alt="Imagem do senhor tenny, macaco dos simpsons"></td>
-            <td>Senhor Tenny</td>
-            <td>400</td>
-            <td>1</td>
-        </tr>
-
-    </table>
+    <footer>
+        <span>Feito com &#9825 por CJ </span>
+        <span class="icon">
+            <a href="#"><i class="fab fa-facebook-f"></a></i>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </span>
+    </footer>
 
 </body>
 </html>
