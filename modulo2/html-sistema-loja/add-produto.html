@@ -1,51 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <title>Adicionar Produto</title>
 </head>
 <body>
-    <div>
-        <h1>Lá vem o macaco & cia</h1>
+    <header>
+        <h1><a href="./index.html">Livros Caros</a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="ctrl-estoque.html">Controle de Estoque</a></li>
+                <li><a href="add-produto.html">Adicionar Produto</a></li>
+                <li><a href="funcionarios.html">Funcionários</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Adicionar Produto</h2>
+        <form id="add-produto" action="">
+            <div>
+                <label class="form-label-add" for="link-foto">Link para foto: </label>
+                <input class="form-input-add" type="url" id="link-foto" name="link-foto">
+            </div>
+
+            <div>
+                <label class="form-label-add" for="descricao">Descrição do produto: </label>
+                <input class="form-input-add" type="text" id="descricao" name="descrição">
+            </div>
+
+            <div>
+                <label class="form-label-add" for="preco">Preço (em R$): </label>
+                <input class="form-input-add" type="number" id="preco" name="preço">
+            </div>
+
+            <div>
+                <label class="form-label-add" for="quantidade">Quantidade disponível: </label>
+                <input class="form-input-add" type="number" id="quantidade" name="quantidade">
+            </div>
+
+            <div class="form-add">
+                <button class="btn-add" type="button" form="add-produto">Adicionar</button>
+            </div>
+
+        </form>
     </div>
-    
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
-    </div>
 
-    
-    <h2>Adicionar Produto</h2>
-    <form action="">
-        <div>
-            <label for="link-foto">Link para foto: </label>
-            <input type="url" id="link-foto" name="link-foto">
-        </div>
-        
-        <div>
-            <label for="descricao">Descrição do produto: </label>
-            <input type="text" id="descricao" name="descrição">
-        </div>
-        
-        <div>
-            <label for="preco">Preço (em R$): </label>
-            <input type="number" id="preco" name="preço">
-        </div>
-        
-        <div>
-            <label for="quantidade">Quantidade disponível: </label>
-            <input type="number" id="quantidade" name="quantidade">
-        </div>
-
-        <div class="form-add">
-            <button type="button">Adicionar</button>
-        </div>
-
-    </form>
+    <footer>
+        <span>Feito com &#9825 por CJ </span>
+        <span class="icon">
+            <a href="#"><i class="fab fa-facebook-f"></a></i>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </span>
+    </footer>
 
 </body>
 </html>

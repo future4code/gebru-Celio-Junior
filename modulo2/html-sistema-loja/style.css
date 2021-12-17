@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+/*PAGINA PRINCIPAL E MODIFICAÇÕES GERAIS*/
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: #e8e8e8;
+	font-family: 'Roboto Slab', serif;
+	height: 98%;
+}
+
+.container::-webkit-scrollbar {
+	width: 10px;
+}
+
+.container::-webkit-scrollbar-track {
+	background: #ffffff;
+	border-radius: 20px; 
+}
+
+.container::-webkit-scrollbar-thumb {
+	background-color: #000000;
+	border-radius: 20px; 
+	border: 3px solid #ffffff;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #e6e6e6;
+	margin: 0 24% 0 24%;
+
+	height: 76%;
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+div main article {
+	margin-bottom: 40px;
+}
+
+header {
+	text-align: center;
+	margin-top: 10px;
+}
+
+header a {
+	text-decoration: none;
+	color: #000000;
+}
+
+nav ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 20px 0;
+}
+
+nav ul li {
+	display: inline-block;
+}
+
+nav ul li a {
+	padding: 10px;
+}
+
+nav ul li a:hover {
+	background-color: #e6e6e6;
+}
+
+footer {
+	text-align: center;
+	bottom: 0;
+	left: 0;
+	height: 30px;
+	position: fixed;
+	width: 100%;
+}
+
+footer span a i {
+	color: #000000;
+	padding-left: 6px;
+}
+
+.icon {
+	position: fixed;
+	right: 24%;
+}
+
+/*CONTROLE DE ESTOQUE*/
+.img-estoque {
+	max-width:200px;
+    max-height:150px;
+    width: auto;
+    height: auto;
+}
+
+.tabela-estoque th, .tabela-estoque td {
+	padding-left: 26px;
+}
+
+/*ADICIONAR PRODUTOS*/
+.form-label-add {
+	display: block;
+}
+
+.form-input-add {
+	margin-bottom: 10px;
+}
+
+.btn-add {
+	font-family: 'Roboto Slab', serif;
+	width: 176px;
+	background-color: #000000;
+	color: #ffffff;
+	border: none;
+	border-radius: 10px;
+	margin-top: 10px;
+}
+
+/*FUNCIONÁRIOS*/
+.lista-funcionarios li {
+	font-size: 20px;
+}
