@@ -71,12 +71,12 @@ body, html {
 }
 
 /*ESTILIZAÇÃO DE PÁGINA ATUAL*/
-.pagina-atual {
+.current-page {
     background-color: #000000;
     border-radius: 20px;
 }
 
-.pagina-atual a {
+.current-page a {
     color: #ffffff;
 }
 
