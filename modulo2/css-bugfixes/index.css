@@ -130,10 +130,10 @@ div table {
 }
 
 .borda-inferior, .borda-inferior:focus {
-        border-top: none;
-        border-right: none;
-        border-left: none;
-        outline: 0;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    outline: 0;
 }
 
 #back-button {
