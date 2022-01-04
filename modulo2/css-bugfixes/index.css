@@ -127,6 +127,13 @@ td button:hover {
     height: 100px;
 }
 
+.borda-inferior, .borda-inferior:focus {
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        outline: 0;
+}
+
 
 #back-button {
     background-color: white;
