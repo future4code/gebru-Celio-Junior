@@ -8,6 +8,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    text-decoration: none;
 }
 
 h2 {
@@ -123,6 +124,10 @@ td button:hover {
     background-color: #c99e38;
 }
 
+div table {
+    margin: 0 auto;
+}
+
 .container-do-search {
     margin-top: 20px;
     height: 100px;
@@ -135,8 +140,9 @@ td button:hover {
         outline: 0;
 }
 
-
 #back-button {
+    display: block;
+    margin: 100px auto;
     background-color: white;
     width: 100px;
     height: 20px;
