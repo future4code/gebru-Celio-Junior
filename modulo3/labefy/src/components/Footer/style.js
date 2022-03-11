@@ -18,6 +18,14 @@ export const Title = styled.h2`
     grid-row: 1;
     margin-left: 60px;
     font-weight: 100;
+
+    @media (max-width: 700px) {
+        font-size: 20px;
+    }
+
+    @media (max-width: 700px) {
+        font-size: 18px;
+    }
 `
 
 export const ItemLeft = styled.span`
@@ -25,6 +33,16 @@ export const ItemLeft = styled.span`
     grid-row: 2;
     align-self: center;
     margin-left: 60px;
+
+    @media (max-width: 700px) {
+        font-size: 14px;
+        margin-left: 50px;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 12px;
+        margin-left: 40px;
+    }
 `
 
 export const ItemCenter = styled.span`
@@ -32,6 +50,16 @@ export const ItemCenter = styled.span`
     grid-row: 2;
     align-self: center;
     margin-left: 60px;
+
+    @media (max-width: 700px) {
+        font-size: 14px;
+        margin-left: 50px;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 12px;
+        margin-left: 40px;
+    }
 `
 
 export const ItemRight = styled.span`
@@ -40,4 +68,14 @@ export const ItemRight = styled.span`
     align-self: center;
     margin-left: 60px;
     margin-right: 60px;
+
+    @media (max-width: 700px) {
+        font-size: 14px;
+        margin-left: 50px;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 12px;
+        margin-left: 40px;
+    }
 `
