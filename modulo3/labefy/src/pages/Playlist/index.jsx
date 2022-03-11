@@ -1,4 +1,7 @@
 import React from 'react'
+import axios from 'axios'
+import Swal from 'sweetalert2'
+
 import * as Styled from './style'
 
 import Header from '../../components/Header'
@@ -6,18 +9,10 @@ import Card from '../../components/Card'
 import SmallCard from '../../components/SmallCard'
 import Player from '../../components/Player'
 
-import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-import axios from 'axios'
-
 const MySwal = withReactContent(Swal)
 
-const authorization = {
-    headers: {
-        Authorization: 'celio-junior-gebru'
-    }
-}
-
+const authorization = { headers: { Authorization: 'celio-junior-gebru' } }
 const urlPlaylist = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/`
 
 export default class Playlist extends React.Component {
@@ -42,12 +37,14 @@ export default class Playlist extends React.Component {
     }
 
     // Correção de bug
+    // Desmontar componente ao mudar para a página de playlist
     componentWillUnmount() {
         this.setState = () => {
             return
         }
     }
 
+    // Renderiza as playlists ao montar, adicionar ou deletar músicas
     getPlaylistTracks = () => {
         axios.get(`${urlPlaylist}${this.props.playlistId}/tracks`, authorization)
             .then(res => {
@@ -55,6 +52,7 @@ export default class Playlist extends React.Component {
             })
     }
 
+    // Os 3 sets abaixo capturam a digitação do usuário para armazenar no estado
     setMusicName = e => {
         this.setState({ inputMusicName: e.target.value })
     }
@@ -86,7 +84,6 @@ export default class Playlist extends React.Component {
     addTrackToPlaylist = () => {
         // Verifica se todos os campos estão preenchidos
         if (this.state.inputMusicName && this.state.inputArtistName && this.state.inputMusicLink) {
-            // Abertura do switch case para verificar repetição
             switch (this.checkRepeated()) {
                 case -1:
                     const newSong = {
@@ -95,27 +92,17 @@ export default class Playlist extends React.Component {
                         artist: this.state.inputArtistName,
                         url: this.state.inputMusicLink
                     }
-    
+
                     axios.post(`${urlPlaylist}${this.props.playlistId}/tracks`, newSong, authorization)
                         .then(() => {
                             this.setState({ inputMusicName: '' })
                             this.setState({ inputArtistName: '' })
                             this.setState({ inputMusicLink: '' })
-    
+
                             this.getPlaylistTracks()
                             this.setState({ preventScroll: true })
                         })
-                        .catch(err => {
-                            MySwal.fire({
-                                icon: 'error',
-                                title: 'Estamos com problemas para processar sua requisição.',
-                                text: `Error: ${err.message}`,
-                                background: 'rgba(230, 230, 230, 0.8)',
-                                allowEnterKey: false,
-                                confirmButtonColor: 'rgba(0, 0, 0, 0.8)'
-                            })
-                        })
-                        break
+                    break
                 default:
                     MySwal.fire({
                         title: 'Erro!',
@@ -125,7 +112,7 @@ export default class Playlist extends React.Component {
                         allowEnterKey: false,
                         background: 'rgba(230, 230, 230, 0.8)'
                     })
-    
+
                     this.setState({ inputMusicName: '' })
                     this.setState({ inputArtistName: '' })
                     this.setState({ inputMusicLink: '' })
@@ -159,16 +146,6 @@ export default class Playlist extends React.Component {
                     .then(() => {
                         this.getPlaylistTracks()
                     })
-                    .catch(err => {
-                        MySwal.fire({
-                            icon: 'error',
-                            title: 'Estamos com problemas para processar sua requisição.',
-                            text: `Error: ${err.message}`,
-                            background: 'rgba(230, 230, 230, 0.8)',
-                            allowEnterKey: false,
-                            confirmButtonColor: 'rgba(0, 0, 0, 0.8)'
-                        })
-                    })
 
                 MySwal.fire({
                     title: 'Feito!',
@@ -197,8 +174,8 @@ export default class Playlist extends React.Component {
 
         setTimeout(() => {
             if (this.state.clicks === 1) {
-                this.setState({playMusic: musicName.url})
-                this.setState({playMusicName: musicName.name})
+                this.setState({ playMusic: musicName.url })
+                this.setState({ playMusicName: musicName.name })
                 this.changePlayerStatus(true)
             } else if (this.state.clicks === 2) {
                 this.removeTrackToPlaylist(musicName)
@@ -212,10 +189,11 @@ export default class Playlist extends React.Component {
         this.props.changePageTo('home')
     }
 
+    // Função usada para modificar o status play ou pause no player
+    // Caso true ou null, faz alteração; Caso false, apenas leitura
     changePlayerStatus = bool => {
         if (bool || bool === null) {
-            return this.setState({playStatus: bool})
-
+            return this.setState({ playStatus: bool })
         } else {
             return this.state.playStatus
         }
@@ -226,14 +204,9 @@ export default class Playlist extends React.Component {
             if (music.name === '') {
                 return null
             } else if (i % 2 === 0) {
-                return <SmallCard key={music.id} light
-                    mainName={music.name} secondaryName={music.artist} 
-                    onClick={() => this.handleClickMusic(music)} />
-
+                return <SmallCard key={music.id} light mainName={music.name} secondaryName={music.artist} onClick={() => this.handleClickMusic(music)} />
             } else {
-                return <SmallCard key={music.id} 
-                    mainName={music.name} secondaryName={music.artist}
-                    onClick={() => this.handleClickMusic(music)} />
+                return <SmallCard key={music.id} mainName={music.name} secondaryName={music.artist} onClick={() => this.handleClickMusic(music)} />
             }
         })
 
@@ -256,8 +229,7 @@ export default class Playlist extends React.Component {
                     onClick={() => this.addTrackToPlaylist()}
                     onKeyDown={e => this.handleKeyDown(e)} />
 
-                <Card title={this.props.playlistName} content={mapPlaylistTracks}
-                    preventScroll={this.state.preventScroll} />
+                <Card title={this.props.playlistName} content={mapPlaylistTracks} preventScroll={this.state.preventScroll} />
 
                 <Player playMusic={this.state.playMusic} playStatus={status => this.changePlayerStatus(status)} playMusicName={this.state.playMusicName} />
 

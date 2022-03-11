@@ -9,17 +9,21 @@ class App extends React.Component {
     currentPlaylist: {}
   }
 
+  // Navegar entre páginas
   changePageTo = value => {
-    this.setState({page: value})
+    this.setState({ page: value })
   }
 
+  // Playlist atual = Playlist que o usuário clicou
   currentPlaylist = playlistName => {
     this.setState(() => {
-      return {currentPlaylist: playlistName}
+      return { currentPlaylist: playlistName }
     })
     return playlistName
   }
 
+  // Renderização condicional que usa a função changePageTo enviando um parametro para navegar entre páginas.
+  // Também são enviadas e recebidas informações das páginas 
   renderPage = () => {
     if (this.state.page === 'home') {
       return <Home changePageTo={value => this.changePageTo(value)} currentPlaylist={playlist => this.currentPlaylist(playlist)} />
@@ -28,7 +32,7 @@ class App extends React.Component {
     }
   }
 
-  render() { 
+  render() {
     return (
       <Styled.App>
         {this.renderPage()}

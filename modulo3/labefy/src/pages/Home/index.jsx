@@ -12,11 +12,8 @@ import SmallCard from '../../components/SmallCard'
 import withReactContent from 'sweetalert2-react-content'
 
 const MySwal = withReactContent(Swal)
-const authorization = {
-    headers: {
-        Authorization: 'celio-junior-gebru'
-    }
-}
+
+const authorization = { headers: { Authorization: 'celio-junior-gebru' } }
 const urlPlaylist = 'https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/'
 
 export default class Home extends React.Component {
@@ -34,33 +31,35 @@ export default class Home extends React.Component {
     }
 
     // Correção de bug
+    // Desmontar componente ao mudar para a página de playlist
     componentWillUnmount() {
         this.setState = () => {
             return
         }
     }
 
+    // Renderiza as playlists ao montar, adicionar ou deletar músicas
     getAllPlaylists = () => {
         axios.get(urlPlaylist, authorization)
             .then(res => {
-                this.setState({playlists: res.data.result.list})
+                this.setState({ playlists: res.data.result.list })
             })
     }
 
-    // Define o estado como o input do usuário e previne para que ao digitar no input
+    // Define o estado para o input do usuário e previne para que ao digitar no input
     // A lista de playlist não desça até o último elemento
-    setPlaylistName = e => {
-        this.setState({inputPlaylistName: e.target.value})
-        this.setState({preventScroll: false})
+    setPlaylistName = event => {
+        this.setState({ inputPlaylistName: event.target.value })
+        this.setState({ preventScroll: false })
     }
 
     // Verifica se já existe uma playlist com o nome selecionado
-    checkRepeated = (el) => {
+    checkRepeated = (element) => {
         const statePlaylists = this.state.playlists
-        const findRepeated = statePlaylists.find((playlist) => playlist.name.toLowerCase() === el.toLowerCase())
+        const findRepeated = statePlaylists.find((playlist) => playlist.name.toLowerCase() === element.toLowerCase())
 
         // Retorna -1 caso o nome não esteja repetido
-        return statePlaylists.indexOf(findRepeated) 
+        return statePlaylists.indexOf(findRepeated)
 
     }
 
@@ -78,8 +77,8 @@ export default class Home extends React.Component {
             axios.post(urlPlaylist, newPlaylist, authorization)
                 .then(() => {
                     this.getAllPlaylists()
-                    this.setState({inputPlaylistName: ''})
-                    this.setState({preventScroll: true})
+                    this.setState({ inputPlaylistName: '' })
+                    this.setState({ preventScroll: true })
                 })
                 .catch(() => {
                     MySwal.fire({
@@ -100,7 +99,7 @@ export default class Home extends React.Component {
                 allowEnterKey: false,
                 background: 'rgba(230, 230, 230, 0.8)'
             })
-            this.setState({inputPlaylistName: ''})
+            this.setState({ inputPlaylistName: '' })
         }
     }
 
@@ -122,16 +121,7 @@ export default class Home extends React.Component {
                     .then(() => {
                         this.getAllPlaylists()
                     })
-                    .catch(err => {
-                        MySwal.fire({
-                            icon: 'error',
-                            title: 'Estamos com problemas para processar sua requisição.',
-                            text: `Error: ${err.message}`,
-                            background: 'rgba(230, 230, 230, 0.8)',
-                            allowEnterKey: false,
-                            confirmButtonColor: 'rgba(0, 0, 0, 0.8)'
-                        })
-                    })
+
                 MySwal.fire({
                     title: 'Feito!',
                     text: 'Sua playlist foi deletada com sucesso',
@@ -151,10 +141,10 @@ export default class Home extends React.Component {
 
     // Captura a quantidade de clicks do usuário
     // Caso 1 click, é redirecionado para a página da playlist
-    // Caso 2 clicks, invoca a função para deletar a playlist
+    // Caso 2 clicks, chama a função para deletar a playlist
     handleClickPlaylist = playlist => {
         this.setState(state => {
-            return {clicks: state.clicks + 1}
+            return { clicks: state.clicks + 1 }
         })
 
         setTimeout(() => {
@@ -164,15 +154,15 @@ export default class Home extends React.Component {
             } else if (this.state.clicks === 2) {
                 this.deletePlaylist(playlist)
             }
-            
-            this.setState({clicks: 0})
+
+            this.setState({ clicks: 0 })
         }, 300)
 
     }
 
     render() {
         const playlistNames = this.state.playlists.map((playlist, i) => {
-            if(playlist.name === '') {
+            if (playlist.name === '') {
                 return null
             } else if (i % 2 === 0) {
                 return <SmallCard key={playlist.id} light mainName={playlist.name} onClick={() => this.handleClickPlaylist(playlist)} />
@@ -185,23 +175,23 @@ export default class Home extends React.Component {
             <Styled.Layout>
                 <Header />
                 <Card inputOne button
-                value1={this.state.inputPlaylistName}
-                title='Criar uma Playlist'
-                placeholder1='Insira o nome da playlist'
-                onChange1={e => this.setPlaylistName(e)}
-                onClick={this.createPlaylist}
-                onKeyDown={e => this.handleKeyDown(e)} />
+                    value1={this.state.inputPlaylistName}
+                    title='Criar uma Playlist'
+                    placeholder1='Insira o nome da playlist'
+                    onChange1={e => this.setPlaylistName(e)}
+                    onClick={this.createPlaylist}
+                    onKeyDown={e => this.handleKeyDown(e)} />
 
                 <Card
-                title='Suas Playlists'
-                content={playlistNames}
-                preventScroll={this.state.preventScroll} />
-            
-                <Footer 
-                title='Guia de Uso:'
-                itemLeft='Todos os campos devem estar preenchidos para os dados serem enviados.'
-                itemCenter='Suas playlists ficarão salvas mesmo que atualize ou feche a página.'
-                itemRight='Clique 2x em uma playlist ou música para apagá-la.' />
+                    title='Suas Playlists'
+                    content={playlistNames}
+                    preventScroll={this.state.preventScroll} />
+
+                <Footer
+                    title='Guia de Uso:'
+                    itemLeft='Todos os campos devem estar preenchidos para os dados serem enviados.'
+                    itemCenter='Suas playlists ficarão salvas mesmo que atualize ou feche a página.'
+                    itemRight='Clique 2x em uma playlist ou música para apagá-la.' />
             </Styled.Layout>
         )
     }

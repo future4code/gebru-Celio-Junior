@@ -6,9 +6,6 @@ export const Player = styled.div`
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    /* display: grid;
-    grid-template-columns: 46.5% 53.5%;
-    align-items: center; */
 
     @media (max-height: 600px) {
         flex-direction: row;
@@ -37,4 +34,8 @@ export const MusicName = styled.h3`
     font-weight: 300;
     letter-spacing: 1px;
     display: inline;
+`
+
+export const PlayerMobile = styled.div`
+    display: none;
 `

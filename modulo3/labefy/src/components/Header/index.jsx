@@ -7,7 +7,8 @@ import withReactContent from 'sweetalert2-react-content'
 
 const MySwal = withReactContent(Swal)
 
-const easterEgg = () => {
+// Alerta acionado ao apertar no botão no centro superior da tela
+const EasterEgg = () => {
     MySwal.fire({
         icon: 'info',
         iconColor: 'rgba(0, 0, 0, 0.8)',
@@ -22,7 +23,7 @@ const easterEgg = () => {
 const Header = props => (
     <React.Fragment>
         <Styled.Title>Labefy</Styled.Title>
-        <Styled.Logo src={Logo} onClick={() => easterEgg()}/>
+        <Styled.Logo src={Logo} onClick={() => EasterEgg()} />
         <Styled.ToBack playlistPage={props.playlistPage} onClick={props.onClick}>Voltar</Styled.ToBack>
     </React.Fragment>
 )

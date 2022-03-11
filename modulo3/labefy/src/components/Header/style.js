@@ -12,6 +12,10 @@ export const Title = styled.h1`
     font-size: 50px;
     line-height: 110%;
     letter-spacing: 6px;
+
+    @media (max-width: 480px) {
+        margin: 30px 0;
+    }
 `
 
 export const Logo = styled.img`
@@ -23,6 +27,10 @@ export const Logo = styled.img`
     align-self: center;
     margin-top: 12px;
 
+    @media (max-width: 700px) {
+        display: none;
+    }
+    
     &:hover {
         opacity: 0.08;
     }
@@ -44,6 +52,10 @@ export const ToBack = styled.h2`
     padding: 10px;
     cursor: pointer;
     color: rgba(244, 244, 244, 0.9);
+
+    @media (max-width: 480px) {
+        margin: 20px 0;
+    }
 
     &:hover {
         background-color: rgba(244, 244, 244, 0.6);

@@ -1,10 +1,12 @@
+import React from 'react'
 import * as Styled from './style'
+
 import Input from '../Input'
 import Button from '../Button'
-import React from 'react'
 
 class Card extends React.Component {
 
+    // Ao adicionar uma playlist ou música o scroll do card sempre irá focar no que está mais abaixo
     scrollToBottom = () => {
         this.scrollEnd.scrollIntoView({ behavior: 'smooth' })
     }

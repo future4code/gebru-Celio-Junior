@@ -1,26 +1,32 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
-import * as Styled from './style'
 import { BiPlay, BiPause } from 'react-icons/bi'
+import * as Styled from './style'
 
 class Player extends React.Component {
 
-    changeStatus = () => {
+    // Função chamada no onClick para pausar ou tocar música
+    // true = Tocar música; null = Pausar música; 
+    // Valor padrão =  null; Valor ao tocar música = true
+    changePlayOrPause = () => {
         if (this.props.playStatus()) {
-            this.props.playStatus(null)
+            this.props.playStatus(null) // Se estiver tocando música, pause
         } else {
-            this.props.playStatus(true)
+            this.props.playStatus(true) // Se estiver pausada, play
         }
     }
 
+    // Renderiza o icone de play ou pause a depender do valor da props playStatus
+    // Se null, renderiza o botão play; Se true, renderiza botão pause;
     iconStatus = () => {
         if (this.props.playStatus()) {
-            return <BiPause onClick={() => this.changeStatus()} />
+            return <BiPause onClick={() => this.changePlayOrPause()} />
         } else {
-            return <BiPlay onClick={() => this.changeStatus()} />
+            return <BiPlay onClick={() => this.changePlayOrPause()} />
         }
     }
 
+    // Função que será chamada para tocar ou não a música
     playAudio = () => {
         if (this.props.playStatus()) {
             return true
@@ -35,7 +41,9 @@ class Player extends React.Component {
             <Styled.Player>
                 <Styled.MusicName>{this.props.playMusicName}</Styled.MusicName>
                 <Styled.Icon play>{this.iconStatus()}</Styled.Icon>
-                <ReactPlayer url={this.props.playMusic} width={0} playing={this.playAudio()} />
+                <Styled.PlayerMobile>
+                    <ReactPlayer url={this.props.playMusic} width={0} playing={this.playAudio()} /> 
+                </Styled.PlayerMobile>
             </Styled.Player>
         )
     }

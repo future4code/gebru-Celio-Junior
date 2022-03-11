@@ -7,6 +7,10 @@ export const Footer = styled.footer`
     opacity: 0.6;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 30px 1fr;
+
+    @media (max-width: 480px) {
+        display: none;
+    }
 `
 
 export const Title = styled.h2`
@@ -37,4 +41,3 @@ export const ItemRight = styled.span`
     margin-left: 60px;
     margin-right: 60px;
 `
-
