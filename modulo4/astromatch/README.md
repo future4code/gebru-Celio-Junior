@@ -37,7 +37,7 @@ A aplicação pode ser utilizada em dispositivos móveis, ainda que eu não a co
  - Sweetalert2
 
 #### Deploy e Imagens
-[https://scary-arm.surge.sh/](https://scary-arm.surge.sh/)
+[brawny-boundary.surge.sh](https://brawny-boundary.surge.sh/)
 
 ![Home: Theme Dark](https://imgbox.com/U6JZt1kE)
 ![Matches: Theme Dark](https://imgbox.com/3D3NjBl0)
