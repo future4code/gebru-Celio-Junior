@@ -10,11 +10,11 @@ export const MainHome = () => {
 
   return (
     <Styled.Container>
-      <Profile setProps={setProfileId} itsMatch={isMatch} />
+      <Profile setProps={setProfileId} isMatch={isMatch} />
       <Choices
         propsId={profileId}
-        itsMatch={isMatch}
-        setItsMatch={setIsMatch}
+        isMatch={isMatch}
+        setIsMatch={setIsMatch}
       />
     </Styled.Container>
   )
