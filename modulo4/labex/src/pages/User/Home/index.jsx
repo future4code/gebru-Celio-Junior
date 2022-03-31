@@ -1,6 +1,6 @@
 import * as Styled from './styles'
 import { useNavigate } from 'react-router-dom'
-import { goTripsList, goLogin } from '../../routes/coordinator'
+import { goTripsList, goLogin } from '../../../routes/coordinator'
 
 export const Home = () => {
   const navigate = useNavigate()

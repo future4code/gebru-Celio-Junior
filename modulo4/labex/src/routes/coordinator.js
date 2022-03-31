@@ -12,8 +12,12 @@ export const goApplicationForm = (navigate) => {
   navigate('/trips/application')
 }
 
-export const goAdminTripDetails = (navigate) => {
+export const goAdminHome = (navigate) => {
   navigate('/admin/trips/list')
+}
+
+export const goTripDetails = (navigate) => {
+  navigate('/admin/trips/:id')
 }
 
 export const goAdminCreateTrip = (navigate) => {

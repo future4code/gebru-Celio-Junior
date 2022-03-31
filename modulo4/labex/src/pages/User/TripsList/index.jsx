@@ -1,7 +1,7 @@
 import * as Styled from './styles'
-import { Header } from '../../components/Header'
+import { Header } from '../../../components/Header'
 import { useNavigate } from 'react-router-dom'
-import { goApplicationForm, goBack } from '../../routes/coordinator'
+import { goApplicationForm, goBack } from '../../../routes/coordinator'
 
 export const ListTrips = () => {
   const navigate = useNavigate()

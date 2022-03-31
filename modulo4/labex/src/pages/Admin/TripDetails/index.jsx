@@ -1,14 +1,11 @@
-import * as Styled from "./styles";
-import { useNavigate } from "react-router-dom";
-import { goAdminCreateTrip, goBack } from "../../../routes/coordinator";
+import * as Styled from './styles'
+import { goBack } from '../../../routes/coordinator.js'
+import {useNavigate} from 'react-router-dom'
 
 export const TripDetails = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
-    <>
-      <button onClick={() => goAdminCreateTrip(navigate)}>Criar Viagem</button>
-      <button onClick={() => goBack(navigate)}>Voltar página anterior</button>
-    </>
-  );
-};
+    <button onClick={() => goBack(navigate)}>Voltar para página anterior</button>
+  )
+}

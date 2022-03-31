@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { fadeIn } from '../../styles/animations'
+import { fadeIn } from '../../../styles/animations'
 
 export const Background = styled.div`
   height: 100vh;
