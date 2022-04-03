@@ -3,11 +3,25 @@ import { fadeIn } from '../../../styles/animations'
 
 export const Container = styled.div`
   height: 100vh;
-  background-color: ${props => props.theme.background};
+  display: grid;
+  grid-template-rows: 80px 1fr;
+  animation: ${fadeIn} 2s forwards;
 `
 
+export const Content = styled.div``
+
 export const Title = styled.h1`
-  font-size: 80px;
-  margin: 0 auto;
-  animation: ${fadeIn} 6s forwards;
+  font-weight: 100;
+  font-size: 60px;
+  text-align: center;
+  margin: 10px 0 20px 0;
+`
+
+export const ListTrips = styled.main`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 100px;
 `

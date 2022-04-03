@@ -3,7 +3,6 @@ import { fadeIn } from '../../../styles/animations'
 
 export const Background = styled.div`
   height: 100vh;
-  background-color: ${props => props.theme.background};
 `
 
 export const ContainerTop = styled.header`
@@ -18,12 +17,12 @@ export const ContainerTop = styled.header`
 export const Title = styled.h1`
   font-size: 100px;
   font-weight: 300;
-  animation: ${fadeIn} 6s forwards;
+  animation: ${fadeIn} 5s forwards;
 `
 export const Subtitle = styled.h2`
   font-size: 40px;
   font-weight: 100;
-  animation: ${fadeIn} 10s forwards;
+  animation: ${fadeIn} 7s forwards;
 `
 
 export const ContainerBottom = styled.main`
@@ -41,12 +40,12 @@ export const Option = styled.section`
   align-items: center;
   font-size: 40px;
   transition: all 0.6s ease 0s;
-  animation: ${fadeIn} 6s forwards;
+  animation: ${fadeIn} 5s forwards;
   cursor: pointer;
 
   &:hover {
-    background-color: #4C566A;
-    color: #ECEFF4;
+    background-color: ${props => props.theme.primary};
+    color: ${props => props.theme.secondary};
     font-size: 48px;
   }
 `

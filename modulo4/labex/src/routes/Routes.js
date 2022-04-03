@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import { Home } from '../pages/User/Home'
+import { Home } from '../pages/User/UserHome'
 import { ListTrips } from '../pages/User/TripsList'
 import { ApplicationForm } from '../pages/User/ApplicationForm'
 import { Login } from '../pages/Admin/Login'
