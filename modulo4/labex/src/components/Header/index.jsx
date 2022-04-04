@@ -1,15 +1,15 @@
 import * as Styled from './styles'
 import { Button } from '../Button'
 import { useNavigate } from 'react-router-dom'
-import { goHome, goBack } from '../../routes/coordinator'
+import { goHome, goBack, goLogin } from '../../routes/coordinator'
 
-export const Header = () => {
+export const Header = props => {
   const navigate = useNavigate()
 
   return (
   <Styled.Header>
     <Styled.Title onClick={() => goHome(navigate)}>LabeX</Styled.Title>
-    <Button onClick={() => goBack(navigate)}>Voltar</Button>
+    <Button outline onClick={() => props.home ? goLogin(navigate) : goBack(navigate)}>{props.buttonText}</Button>
   </Styled.Header>
 
   )

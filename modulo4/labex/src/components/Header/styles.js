@@ -3,12 +3,12 @@ import { fadeIn } from '../../styles/animations'
 
 export const Header = styled.header`
   height: 80px;
+  // width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 30px;
-  border-bottom: 1px solid ${props => props.theme.primary};
-  animation: ${fadeIn} 1s forwards;
+  padding: 20px 80px;
+  // animation: ${fadeIn} 1s forwards;
 `
 
 export const Title = styled.h1`

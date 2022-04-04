@@ -7,18 +7,13 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body, #root {
+    font-family: 'Roboto', sans-serif;
     letter-spacing: 1px;
-    color: ${props => props.theme.primary};
-    background-color: ${props => props.theme.background};
-    font-family: 'Roboto Mono', monospace;
-}
-
-  button {
-    font-weight: 600;
-    font-family: 'Roboto Mono', monospace;
+    color: ${props => props.theme.secondary};
+    background-color: ${props => props.theme.primary};
   }
 
-  a:visited {
-    color: ${props => props.theme.primary};
+  button {
+    color: ${props => props.theme.primary}
   }
 `

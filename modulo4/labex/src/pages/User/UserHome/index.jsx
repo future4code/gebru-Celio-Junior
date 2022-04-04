@@ -1,21 +1,30 @@
 import * as Styled from './styles'
 import { useNavigate } from 'react-router-dom'
-import { goTripsList, goLogin } from '../../../routes/coordinator'
+import { goTripsList } from '../../../routes/coordinator'
+import { Header } from '../../../components/Header'
+import { Button } from '../../../components/Button'
+import Decoration from '../../../assets/img/decoration.svg'
 
 export const Home = () => {
   const navigate = useNavigate()
 
   return (
-    <Styled.Background>
-      <Styled.ContainerTop>
-        <Styled.Title>LabeX</Styled.Title>
-        <Styled.Subtitle>Experience</Styled.Subtitle>
-      </Styled.ContainerTop>
+    <Styled.Home>
+      <Header buttonText="Admin" home />
+      <Styled.Content>
+        <Styled.Apresentation>
+          <Styled.Text>Viver,</Styled.Text>
+          <Styled.Text>Aprender,</Styled.Text>
+          <Styled.Text lastItem>Experimentar...</Styled.Text>
+          <Button large onClick={() => goTripsList(navigate)}>
+            Nossas Viagens
+          </Button>
+        </Styled.Apresentation>
 
-      <Styled.ContainerBottom>
-        <Styled.Option onClick={() => goTripsList(navigate)}>Viagens</Styled.Option>
-        <Styled.Option onClick={() => goLogin(navigate)}>Admin</Styled.Option>
-      </Styled.ContainerBottom>
-    </Styled.Background>
+        <Styled.Image>
+          <Styled.Decoration src={Decoration} />
+        </Styled.Image>
+      </Styled.Content>
+    </Styled.Home>
   )
 }

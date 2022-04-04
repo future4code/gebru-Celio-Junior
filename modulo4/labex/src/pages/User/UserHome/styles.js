@@ -1,51 +1,41 @@
 import styled from 'styled-components'
 import { fadeIn } from '../../../styles/animations'
 
-export const Background = styled.div`
+export const Home = styled.div`
   height: 100vh;
-`
-
-export const ContainerTop = styled.header`
-  width: 100%;
-  height: 50%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-flow: column;
 `
 
-export const Title = styled.h1`
-  font-size: 100px;
-  font-weight: 300;
-  animation: ${fadeIn} 5s forwards;
-`
-export const Subtitle = styled.h2`
-  font-size: 40px;
-  font-weight: 100;
-  animation: ${fadeIn} 7s forwards;
-`
-
-export const ContainerBottom = styled.main`
-  width: 100%;
-  height: 50%;
+export const Content = styled.div`
+  height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
 `
-export const Option = styled.section`
+
+export const Apresentation = styled.section`
   width: 50%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  font-size: 40px;
-  transition: all 0.6s ease 0s;
-  animation: ${fadeIn} 5s forwards;
-  cursor: pointer;
+  padding-left: 80px;
+  animation: ${fadeIn} 4s forwards;
+`
 
-  &:hover {
-    background-color: ${props => props.theme.primary};
-    color: ${props => props.theme.secondary};
-    font-size: 48px;
-  }
+export const Text = styled.h2`
+  font-size: 52px;
+  font-weight: 100;
+  margin-bottom: ${props => (props.lastItem ? '30px' : '16px')};
+`
+
+export const Image = styled.section`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+`
+
+export const Decoration = styled.img`
+  width: 420px;
+  animation: ${fadeIn} 6s forwards;
 `
