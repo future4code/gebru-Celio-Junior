@@ -1,11 +1,14 @@
 import * as Styled from './styles'
 import { useNavigate } from 'react-router-dom'
 import { goBack } from '../../../routes/coordinator'
+import {Header} from '../../../components/Header'
 
 export const ApplicationForm = () => {
   const navigate = useNavigate()
 
   return (
-    <button onClick={() => goBack(navigate)}>Voltar para página anterior</button>
+    <Styled.ApplicationForm>
+      <Header buttonText="Voltar" />
+    </Styled.ApplicationForm>
   )
 }

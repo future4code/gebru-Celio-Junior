@@ -3,7 +3,8 @@ import { createGlobalStyle } from 'styled-components'
 export const GlobalStyles = createGlobalStyle`
   * {
     margin: 0;
-    text-decoration: none; 
+    text-decoration: none;
+    list-style-type: none;
   }
 
   body, #root {
