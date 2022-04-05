@@ -5,6 +5,7 @@ export const Button = props => (
     outline={props.outline}
     large={props.large}
     onClick={props.onClick}
+    type={props.type}
   >
     {props.children}
   </Styled.Button>
