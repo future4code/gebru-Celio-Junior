@@ -8,6 +8,7 @@ export const Input = props => (
     name={props.name}
     required={props.required}
     min={props.min}
+    lastItem={props.lastItem}
   />
 )
 
