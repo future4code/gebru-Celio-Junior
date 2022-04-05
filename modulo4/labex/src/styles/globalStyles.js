@@ -7,7 +7,9 @@ export const GlobalStyles = createGlobalStyle`
     list-style-type: none;
   }
 
-  body, #root {
+  html, body, #root {
+    height: 100%;
+    width: 100%;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 1px;
     color: ${props => props.theme.secondary};

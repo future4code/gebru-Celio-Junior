@@ -4,6 +4,7 @@ export const Input = props => (
   <Styled.Input
     type={props.type}
     value={props.value}
+    onChange={props.onChange}
     placeholder={props.placeholder}
     name={props.name}
     required={props.required}

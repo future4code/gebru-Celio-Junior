@@ -15,7 +15,7 @@ export const Content = styled.main`
   animation: ${fadeIn} 2s forwards;
 `
 
-export const Form = styled.form`
+export const Form = styled.div`
   height: 300px;
   width: 500px;
   border: 2px solid ${props => props.theme.secondary};

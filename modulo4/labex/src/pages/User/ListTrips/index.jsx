@@ -1,12 +1,12 @@
 import * as Styled from './styles'
 import { useEffect, useState } from 'react'
-import API from '../../../services/api'
+import { API } from '../../../services/api'
 
 import { useNavigate } from 'react-router-dom'
 import { goApplicationForm } from '../../../routes/coordinator'
 
 import { Header } from '../../../components/Header'
-import { Card } from '../../../components/Card'
+import { Card } from './components/Card'
 
 export const ListTrips = () => {
   const navigate = useNavigate()
