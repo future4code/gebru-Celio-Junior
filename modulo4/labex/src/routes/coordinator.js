@@ -18,8 +18,8 @@ export const goAdminHome = navigate => {
   navigate('/admin/trips/list')
 }
 
-export const goTripDetails = navigate => {
-  navigate('/admin/trips/:id')
+export const goTripDetails = (navigate, id) => {
+  navigate(`/admin/trips/${id}`)
 }
 
 export const goAdminCreateTrip = navigate => {

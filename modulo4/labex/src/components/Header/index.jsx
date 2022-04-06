@@ -6,10 +6,24 @@ import { goHome, goBack, goLogin } from '../../routes/coordinator'
 export const Header = props => {
   const navigate = useNavigate()
 
+  const headerType = () => {
+    if (props.home) {
+      return goLogin(navigate)
+    } else if (props.logout) {
+      localStorage.removeItem('token')
+      return goLogin(navigate)
+    } else if (props.login) {
+      return goHome(navigate)
+    } else {
+      return goBack(navigate)
+    }
+  }
+
   return (
   <Styled.Header>
     <Styled.Title onClick={() => goHome(navigate)}>LabeX</Styled.Title>
-    <Button outline onClick={() => props.home ? goLogin(navigate) : goBack(navigate)}>{props.buttonText}</Button>
+    {/* <Button outline onClick={() => props.home ? goLogin(navigate) : goBack(navigate)}>{props.buttonText}</Button> */}
+    <Button outline onClick={headerType}>{props.buttonText}</Button>
   </Styled.Header>
 
   )

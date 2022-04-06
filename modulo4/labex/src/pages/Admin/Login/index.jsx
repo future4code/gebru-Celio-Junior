@@ -1,10 +1,10 @@
 import * as Styled from './styles'
 import { useNavigate } from 'react-router-dom'
-import { goAdminHome, goBack } from '../../../routes/coordinator'
+import { goAdminHome } from '../../../routes/coordinator'
 import { Header } from '../../../components/Header'
 import { Input } from '../../../components/Input'
 import { Button } from '../../../components/Button'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { API } from '../../../services/api'
 
 export const Login = () => {
@@ -13,19 +13,16 @@ export const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  
-
   const login = () => {
     const body = {
       email,
-      password
+      password,
     }
 
     API.post('login', body)
       .then(res => {
         localStorage.setItem('token', res.data.token)
-        console.log(res)
-        // goAdminHome(navigate)
+        goAdminHome(navigate)
       })
       .catch(err => {
         alert('Usuário e/ou Senha incorreta')
@@ -34,7 +31,7 @@ export const Login = () => {
 
   return (
     <Styled.Login>
-      <Header buttonText="Voltar" />
+      <Header login buttonText="Voltar" />
       <Styled.Content>
         <Styled.Form>
           <Styled.Title>Entrar na sessão</Styled.Title>
@@ -50,7 +47,9 @@ export const Login = () => {
             type="password"
             lastItem
           />
-          <Button large onClick={login}>Fazer Login</Button>
+          <Button large onClick={login}>
+            Fazer Login
+          </Button>
         </Styled.Form>
       </Styled.Content>
     </Styled.Login>
