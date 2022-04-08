@@ -6,17 +6,18 @@ import { Input } from '../../../components/Input'
 import { Button } from '../../../components/Button'
 import { useState } from 'react'
 import { API } from '../../../services/api'
+import { useForm } from '../../../hooks/useForm'
 
 export const Login = () => {
   const navigate = useNavigate()
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const { form, onChange, cleanFields } = useForm({ email: '', password: '' })
 
-  const login = () => {
+  const login = e => {
+    e.preventDefault()
     const body = {
-      email,
-      password,
+      email: form.email,
+      password: form.password,
     }
 
     API.post('login', body)
@@ -33,23 +34,26 @@ export const Login = () => {
     <Styled.Login>
       <Header login buttonText="Voltar" />
       <Styled.Content>
-        <Styled.Form>
+        <Styled.Form onSubmit={login}>
           <Styled.Title>Entrar na sessão</Styled.Title>
           <Input
             placeholder="Insira seu e-mail"
-            onChange={e => setEmail(e.target.value)}
-            value={email}
+            name={'email'}
+            onChange={onChange}
+            value={form.email}
+            type="email"
+            required
           />
           <Input
             placeholder="Insira sua senha"
-            onChange={e => setPassword(e.target.value)}
-            value={password}
+            name="password"
+            onChange={onChange}
+            value={form.password}
             type="password"
+            required
             lastItem
           />
-          <Button large onClick={login}>
-            Fazer Login
-          </Button>
+          <Button large>Fazer Login</Button>
         </Styled.Form>
       </Styled.Content>
     </Styled.Login>

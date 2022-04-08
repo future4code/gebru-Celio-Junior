@@ -10,6 +10,7 @@ export const Input = props => (
     required={props.required}
     min={props.min}
     lastItem={props.lastItem}
+    pattern={props.pattern}
   />
 )
 
