@@ -13,12 +13,12 @@ export const Router = () => (
   <BrowserRouter>
     <Routes>
       <Route index element={<Home />} />
-      <Route path='trips/list' element={<ListTrips />} />
-      <Route path='trips/application' element={<ApplicationForm />} />
-      <Route path='login' element={<Login />} />
-      <Route path='admin/trips/list' element={<AdminHome />} />
-      <Route path='admin/trips/:id' element={<TripDetails />} />
-      <Route path='admin/trips/create' element={<CreateTrip />} />
+      <Route path="trips/list" element={<ListTrips />} />
+      <Route path="trips/application" element={<ApplicationForm />} />
+      <Route path="login" element={<Login />} />
+      <Route path="admin/trips/list" element={<AdminHome />} />
+      <Route path="admin/trips/:id" element={<TripDetails />} />
+      <Route path="admin/trips/create" element={<CreateTrip />} />
     </Routes>
   </BrowserRouter>
 )

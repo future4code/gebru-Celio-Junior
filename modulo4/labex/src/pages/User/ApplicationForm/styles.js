@@ -29,4 +29,5 @@ export const Title = styled.h2`
   margin-top: 10px;
   margin-bottom: 20px;
   font-size: 30px;
+  text-align: center;
 `

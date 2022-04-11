@@ -1,12 +1,12 @@
 import * as Styled from './styles'
+import { API } from '../../../services/api'
 import { useNavigate } from 'react-router-dom'
 import { goAdminHome } from '../../../routes/coordinator'
+
+import { useForm } from '../../../hooks/useForm'
 import { Header } from '../../../components/Header'
 import { Input } from '../../../components/Input'
 import { Button } from '../../../components/Button'
-import { useState } from 'react'
-import { API } from '../../../services/api'
-import { useForm } from '../../../hooks/useForm'
 
 export const Login = () => {
   const navigate = useNavigate()

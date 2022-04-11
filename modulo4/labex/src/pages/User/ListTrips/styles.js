@@ -36,4 +36,13 @@ export const List = styled.ul`
   align-items: center;
   overflow-y: auto;
   animation: ${fadeIn} 4s forwards;
+
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${props => props.theme.secondary};
+    border-radius: 30px;
+  }
 `

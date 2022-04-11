@@ -1,28 +1,36 @@
 import * as Styled from './styles'
-import { goBack } from '../../../routes/coordinator.js'
-import { useNavigate, useParams } from 'react-router-dom'
+import { API } from '../../../services/api'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+
 import { useProtectedPage } from '../../../hooks/useProtectedPage'
 import { Header } from '../../../components/Header'
-import { useRequestData } from '../../../hooks/useRequestData'
-import { Candidate } from './components/Candidate'
-import { API } from '../../../services/api'
-import { useState } from 'react'
+
+import { Candidate } from './Candidate'
+import { Approved } from './Approved'
 
 export const TripDetails = () => {
   useProtectedPage()
-  const navigate = useNavigate()
   const pathParams = useParams()
 
-  const [approvedName, setApprovedName] = useState([])
+  const [trip, setTrip] = useState([])
 
-  const [data, loadingData, errorData] = useRequestData(
-    `trip/${pathParams.id}`,
-    localStorage.getItem('token')
-  )
-  const trip = data && data.trip
+  const getTripDetail = () => {
+    const headers = {
+      headers: {
+        auth: localStorage.getItem('token'),
+      },
+    }
+    API.get(`trip/${pathParams.id}`, headers).then(res =>
+      setTrip(res.data.trip)
+    )
+  }
 
-  const choice = (id, res, name) => {
-    console.log(id + ' e ' + res)
+  useEffect(() => {
+    getTripDetail()
+  }, [])
+
+  const choice = (id, res) => {
     const headers = {
       headers: {
         auth: localStorage.getItem('token'),
@@ -35,24 +43,17 @@ export const TripDetails = () => {
 
     API.put(`trips/${pathParams.id}/candidates/${id}/decide`, body, headers)
       .then(res => {
-        setApprovedName(...approvedName, name)
+        getTripDetail()
       })
       .catch(err => console.log('Deu errado: ' + err))
   }
 
-  const candidates =
-    trip &&
-    trip.candidates.map(person => {
-      return <Candidate choice={choice} key={person.id} person={person} />
-    })
-
   return (
     <Styled.TripDetails>
-      <Header buttonText="Voltar" />
+      <Header buttonText="Voltar" admin />
 
       <Styled.Content>
         <Styled.TripAbout>
-          <button onClick={() => console.log(approvedName)}>TESTE</button>
           <Styled.Title name={'true'}>{trip && trip.name}</Styled.Title>
           <Styled.Text>Descrição: {trip && trip.description}</Styled.Text>
           <Styled.Text>Planeta: {trip && trip.planet}</Styled.Text>
@@ -62,11 +63,12 @@ export const TripDetails = () => {
 
         <Styled.Pending>
           <Styled.Title>Pendentes</Styled.Title>
-          {candidates}
+          <Candidate candidates={trip.candidates} choice={choice} />
         </Styled.Pending>
 
         <Styled.Approved>
           <Styled.Title>Aprovados</Styled.Title>
+          {<Approved approved={trip.approved} />}
         </Styled.Approved>
       </Styled.Content>
     </Styled.TripDetails>

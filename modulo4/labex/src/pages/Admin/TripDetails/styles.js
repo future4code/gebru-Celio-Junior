@@ -56,4 +56,18 @@ export const Pending = styled.section`
 export const Approved = styled.section`
   grid-column: 3 / 4;
   padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  max-height: 400px;
+
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${props => props.theme.secondary};
+    border-radius: 30px;
+  }
 `

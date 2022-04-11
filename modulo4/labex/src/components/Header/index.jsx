@@ -20,12 +20,13 @@ export const Header = props => {
   }
 
   return (
-  <Styled.Header>
-    <Styled.Title onClick={() => goHome(navigate)}>LabeX</Styled.Title>
-    {/* <Button outline onClick={() => props.home ? goLogin(navigate) : goBack(navigate)}>{props.buttonText}</Button> */}
-    <Button outline onClick={headerType}>{props.buttonText}</Button>
-  </Styled.Header>
-
+    <Styled.Header>
+      <Styled.Title onClick={() => (props.admin ? '' : goHome(navigate))}>
+        LabeX
+      </Styled.Title>
+      <Button outline onClick={headerType}>
+        {props.buttonText}
+      </Button>
+    </Styled.Header>
   )
 }
-

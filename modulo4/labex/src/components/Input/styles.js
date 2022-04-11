@@ -8,7 +8,7 @@ export const Input = styled.input`
   border-radius: 13px;
   padding: 0 10px;
   margin-top: 10px;
-  margin-bottom: ${props => props.lastItem ? '20px' : '10px'}
+  margin-bottom: ${props => (props.lastItem ? '20px' : '10px')};
 `
 
 export const Select = styled.select`

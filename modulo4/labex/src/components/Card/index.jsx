@@ -1,7 +1,7 @@
 import * as Styled from './styles'
 
 export const Card = props => (
-  <Styled.Card onClick={props.onClick}>
+  <Styled.Card onClick={props.onClick} onDoubleClick={props.onDoubleClick}>
     <Styled.Info>
       <Styled.Title>Nome: </Styled.Title>
       <Styled.Text>{props.trip.name}</Styled.Text>

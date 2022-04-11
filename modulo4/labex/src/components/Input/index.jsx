@@ -15,7 +15,14 @@ export const Input = props => (
 )
 
 export const Select = props => (
-  <Styled.Select lastItem={props.lastItem} required={props.required}>
+  <Styled.Select
+    value={props.value}
+    onChange={props.onChange}
+    name={props.name}
+    lastItem={props.lastItem}
+    required={props.required}
+    defaultValue={props.defaultValue}
+  >
     {props.children}
   </Styled.Select>
 )

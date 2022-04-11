@@ -33,6 +33,10 @@ export const Image = styled.section`
   height: 100%;
   display: flex;
   align-items: flex-end;
+
+  @media (max-width: 850px) {
+    display: none;
+  }
 `
 
 export const Decoration = styled.img`

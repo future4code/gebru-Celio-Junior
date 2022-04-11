@@ -8,7 +8,6 @@ export const AdminHome = styled.div`
 
 export const Content = styled.main`
   height: 100%;
-  border: 1px solid #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,4 +19,13 @@ export const ListTrips = styled.ul`
   height: 400px;
   overflow-y: auto;
   margin-top: 20px;
+
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${props => props.theme.secondary};
+    border-radius: 30px;
+  }
 `

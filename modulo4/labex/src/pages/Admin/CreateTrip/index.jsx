@@ -1,14 +1,14 @@
-import { useNavigate } from 'react-router-dom'
 import * as Styled from './styles'
-import { goBack } from '../../../routes/coordinator'
+import { API } from '../../../services/api'
+
 import { useProtectedPage } from '../../../hooks/useProtectedPage'
+import { useForm } from '../../../hooks/useForm'
+
 import { Header } from '../../../components/Header'
 import { Input, Option, Select } from '../../../components/Input'
 import { Button } from '../../../components/Button'
-import { useForm } from '../../../hooks/useForm'
 
 export const CreateTrip = () => {
-  const navigate = useNavigate()
   useProtectedPage()
 
   const { form, onChange, cleanFields } = useForm({
@@ -16,15 +16,35 @@ export const CreateTrip = () => {
     date: '',
     description: '',
     durationInDays: '',
+    planet: '',
   })
 
   const sendForm = e => {
     e.preventDefault()
+    const date = date => date.split('-').reverse().join('/')
+
+    const body = {
+      name: form.name,
+      planet: form.planet,
+      date: date(form.date),
+      description: form.description,
+      durationInDays: form.durationInDays,
+    }
+
+    const headers = {
+      headers: {
+        auth: localStorage.getItem('token'),
+      },
+    }
+
+    API.post(`trips`, body, headers).then(res => {
+      cleanFields()
+    })
   }
 
   return (
     <Styled.CreateTrip>
-      <Header buttonText="Voltar" />
+      <Header buttonText="Voltar" admin />
       <Styled.Content>
         <Styled.Form onSubmit={sendForm}>
           <Styled.Title>Criar Viagem</Styled.Title>
@@ -34,19 +54,40 @@ export const CreateTrip = () => {
             value={form.name}
             onChange={onChange}
             pattern={'^.{5,}'}
+            required
           />
-          <Select>
-            <Option disabled selected>
+          <Select
+            defaultValue={'DEFAULT'}
+            name="planet"
+            onChange={onChange}
+            required
+          >
+            <Option value="DEFAULT" disabled>
               Escolha um planeta
             </Option>
+            <Option value="mercurio">Mercúrio</Option>
+            <Option value="venus">Vênus</Option>
+            <Option value="terra">Terra</Option>
+            <Option value="marte">Marte</Option>
+            <Option value="jupiter">Júpiter</Option>
+            <Option value="saturno">Saturno</Option>
+            <Option value="urano">Urano</Option>
+            <Option value="netuno">Netuno</Option>
           </Select>
-          <Input type="date" />
+          <Input
+            type="date"
+            name="date"
+            value={form.date}
+            onChange={onChange}
+            required
+          />
           <Input
             placeholder="Descrição"
             name="description"
             value={form.description}
             onChange={onChange}
             pattern={'^.{30,}'}
+            required
           />
           <Input
             placeholder="Duração em dias"
@@ -54,7 +95,8 @@ export const CreateTrip = () => {
             value={form.durationInDays}
             onChange={onChange}
             type="number"
-            min='50'
+            min="50"
+            required
             lastItem
           />
           <Button large>Criar</Button>

@@ -1,24 +1,42 @@
 import * as Styled from './styles'
-import { useNavigate } from 'react-router-dom'
-import { goBack } from '../../../routes/coordinator'
 import { Header } from '../../../components/Header'
 import { Input, Option, Select } from '../../../components/Input'
 import { Button } from '../../../components/Button'
 import { useForm } from '../../../hooks/useForm'
+import { API } from '../../../services/api'
+import { CountryList } from './countryList'
+import { useEffect, useState } from 'react'
 
 export const ApplicationForm = () => {
-  const navigate = useNavigate()
+  const [trips, setTrips] = useState([])
+
+  useEffect(() => {
+    API.get('trips').then(res => setTrips(res.data.trips))
+  }, [])
 
   const { form, onChange, cleanFields } = useForm({
     name: '',
-    age: '',
+    age: 0,
     applicationText: '',
     profession: '',
+    country: '',
+    trip: null,
   })
 
   const sendForm = e => {
     e.preventDefault()
-    console.log('Send')
+
+    const body = {
+      name: form.name,
+      age: form.age,
+      applicationText: form.applicationText,
+      profession: form.profession,
+      country: form.country,
+    }
+
+    API.post(`trips/${form.trip}/apply`, body).then(res => {
+      cleanFields()
+    })
   }
 
   return (
@@ -28,11 +46,20 @@ export const ApplicationForm = () => {
       <Styled.Content>
         <Styled.Form onSubmit={sendForm}>
           <Styled.Title>Inscrever-se para uma viagem</Styled.Title>
-          <Select required>
-            <Option disabled selected>
+          <Select
+            name="trip"
+            onChange={onChange}
+            required
+            defaultValue={'DEFAULT'}
+          >
+            <Option value="DEFAULT" disabled>
               Escolha uma viagem
             </Option>
-            <Option>Escolha uma viagem</Option>
+            {trips.map(trip => (
+              <Option key={trip.id} value={trip.id}>
+                {trip.name}
+              </Option>
+            ))}
           </Select>
           <Input
             placeholder="Nome"
@@ -48,7 +75,7 @@ export const ApplicationForm = () => {
             value={form.age}
             onChange={onChange}
             type="number"
-            min='18'
+            min="18"
             required
           />
           <Input
@@ -67,11 +94,11 @@ export const ApplicationForm = () => {
             pattern={'^.{10,}'}
             required
           />
-          <Select required lastItem>
-            <Option disabled selected>
-              Escolha um País
+          <CountryList onChange={onChange} defaultValue={'DEFAULT'}>
+            <Option value="DEFAULT" disabled>
+              Qual o seu País?
             </Option>
-          </Select>
+          </CountryList>
           <Button large>Enviar</Button>
         </Styled.Form>
       </Styled.Content>
