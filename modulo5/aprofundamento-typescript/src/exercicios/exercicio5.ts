@@ -1,0 +1,1 @@
+// A: O target é es5 ao invés de ts6 e algumas opções estão comentadas e outras não (em comparação ao slide)
