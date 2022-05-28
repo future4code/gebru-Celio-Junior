@@ -13,7 +13,7 @@ type Movie = {
   score?: number
 }
 
-export const exercise3 = (name: string, releaseYear: number, genre: GENRE, score?: number): Movie => {
+const exercise3 = (name: string, releaseYear: number, genre: GENRE, score?: number): Movie => {
 
   const movieInfo: Movie = {
     name,
