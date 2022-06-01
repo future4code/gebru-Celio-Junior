@@ -66,3 +66,8 @@ const Users: User[] = [
     website: "www.meusite.com.br"
   }
 ]
+
+// Exercício 4
+app.get("/users", (req, res) => {
+  res.send(Users)
+})
