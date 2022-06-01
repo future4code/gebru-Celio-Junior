@@ -14,3 +14,15 @@ app.listen(3003, () => {
 app.get("/", (req, res) => {
   res.send("Exercício 1")
 })
+
+// Exercício 2
+type User = {
+  id: number,
+  name: string,
+  username: string,
+  email: string,
+  address: object,
+  phone: number | string
+  website: string,
+  company: object
+}
