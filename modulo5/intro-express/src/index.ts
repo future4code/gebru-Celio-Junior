@@ -74,7 +74,7 @@ app.get("/users", (req, res) => {
 
 // Exercício 5
 type Post = {
-  userId: number,
+  userId: number | string,
   id: number,
   title: string,
   body: string
@@ -95,9 +95,23 @@ const Posts: Post[] = [
     body: "Bla bla bla"
   },
   {
-    userId: 1,
-    id: 3,
-    title: "Meu Post 3",
+    userId: 2,
+    id: 1,
+    title: "Meu Post",
     body: "Bla bla bla"
   }
 ]
+
+// Exercício 7
+app.get("/posts", (req, res) => {
+  res.send(Posts)
+})
+
+// Exercício 8
+app.get("/posts/:userId", (req, res) => {
+  const userId = req.params.userId
+
+  const post = Posts.filter(post => post.userId === Number(userId))
+
+  res.send(post)
+})
