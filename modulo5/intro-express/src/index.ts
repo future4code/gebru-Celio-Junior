@@ -79,3 +79,25 @@ type Post = {
   title: string,
   body: string
 }
+
+// Exercício 6
+const Posts: Post[] = [
+  {
+    userId: 1,
+    id: 1,
+    title: "Meu Post",
+    body: "Bla bla bla"
+  },
+  {
+    userId: 1,
+    id: 2,
+    title: "Meu Post 2",
+    body: "Bla bla bla"
+  },
+  {
+    userId: 1,
+    id: 3,
+    title: "Meu Post 3",
+    body: "Bla bla bla"
+  }
+]
