@@ -50,3 +50,9 @@ const toDos: ToDo[] = [
     completed: false
   }
 ]
+
+// Exercício 4
+app.get('/todo', (req, res) => {
+  const completed = toDos.filter(toDo => toDo.completed === true)
+  res.send(completed)
+})
