@@ -14,3 +14,11 @@ app.listen(3003, () => {
 app.get('/ping', (req, res) => {
   res.send('pong')
 })
+
+// Exercício 2
+type ToDo = {
+  userId: number,
+  id: number,
+  title: string,
+  completed: boolean
+}
